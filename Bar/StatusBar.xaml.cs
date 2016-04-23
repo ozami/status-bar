@@ -20,13 +20,15 @@ namespace Bar
     public partial class StatusBar : Window
     {
         Clock clock;
+        CpuUsage cpuUsage;
 
         public StatusBar()
         {
             InitializeComponent();
             clock = new Clock();
-            DataContext = clock;
-
+            cpuUsage = new CpuUsage();
+            clock_label.DataContext = clock;
+            cpu_label.DataContext = cpuUsage;
         }
         //protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         //{
