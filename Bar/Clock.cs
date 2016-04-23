@@ -24,7 +24,7 @@ namespace Bar
 
         public void Update(object args)
         {
-            TimeString = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+            TimeString = DateTime.Now.ToString("H:mm");
         }
 
         public string TimeString
