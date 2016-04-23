@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bar"
         mc:Ignorable="d"
-        Title="Status Bar" Height="32" Width="124" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" WindowStyle="None" Background="#B2000000" Foreground="White" AllowsTransparency="True" Top="0">
-    <Grid Margin="0,0,-5,0">
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,-6" TextWrapping="Wrap" Text="{Binding TimeString}" VerticalAlignment="Top" FontFamily="Arial"/>
+        Title="Status Bar" Height="28" Width="150" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" WindowStyle="None" Background="#B2000000" Foreground="White" AllowsTransparency="True" Top="0">
+    <Grid ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        <!--TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,-6" TextWrapping="Wrap" Text="{Binding TimeString}" VerticalAlignment="Top" FontFamily="Arial"/-->
+        <Label x:Name="label" Content="{Binding TimeString}" Width="150" FontFamily="Arial" Height="28" Foreground="White" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

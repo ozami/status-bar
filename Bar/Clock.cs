@@ -17,14 +17,14 @@ namespace Bar
 
         public Clock()
         {
-            time = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+            time = "";
             timer = new Timer(new TimerCallback(Update));
-            timer.Change(0, 2000);
+            timer.Change(0, 1000);
         }
 
         public void Update(object args)
         {
-            TimeString = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            TimeString = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
         }
 
         public string TimeString
@@ -36,8 +36,10 @@ namespace Bar
 
             set
             {
-                time = value;
-                NotifyPropertyChanged();
+                if (time != value) {
+                    time = value;
+                    NotifyPropertyChanged();
+                }
             }
         }
 
