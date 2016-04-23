@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bar"
         mc:Ignorable="d"
-        Title="Status Bar" Height="32" Width="124" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" WindowStyle="None" Background="#B2000000" Foreground="White" AllowsTransparency="True">
+        Title="Status Bar" Height="32" Width="124" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" WindowStyle="None" Background="#B2000000" Foreground="White" AllowsTransparency="True" Top="0">
     <Grid Margin="0,0,-5,0">
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" CharacterSpacing="1"  Margin="10,10,0,-6" TextWrapping="Wrap" Text="2015-04-23 14:38" VerticalAlignment="Top" FontFamily="Arial"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,-6" TextWrapping="Wrap" Text="{Binding TimeString}" VerticalAlignment="Top" FontFamily="Arial"/>
 
     </Grid>
 </Window>

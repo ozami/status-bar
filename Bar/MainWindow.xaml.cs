@@ -20,9 +20,13 @@ namespace Bar
     /// </summary>
     public partial class MainWindow : Window
     {
+        Clock clock;
+
         public MainWindow()
         {
             InitializeComponent();
+            clock = new Clock();
+            DataContext = clock;
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
