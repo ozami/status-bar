@@ -10,28 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Bar
 {
     /// <summary>
-    /// MainWindow.xaml の相互作用ロジック
+    /// StatusBar.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StatusBar : Window
     {
-        public MainWindow()
+        Clock clock;
+
+        public StatusBar()
         {
             InitializeComponent();
-            SourceInitialized += OnSourceInitialized;
-        }
+            clock = new Clock();
+            DataContext = clock;
 
-        private void OnSourceInitialized(object sender, EventArgs e)
-        {
-            var bar = new StatusBar();
-            bar.Owner = this;
-            bar.Show();
-            Hide();
         }
+        //protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        //{
+        //    base.OnMouseLeftButtonDown(e);
+        //    DragMove();
+        //}
     }
 }
