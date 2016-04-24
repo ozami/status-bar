@@ -9,12 +9,13 @@ namespace Bar
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private string power;
-        private string status;
+        private string mode;
 
         public Power()
         {
             Microsoft.Win32.SystemEvents.PowerModeChanged +=
                 new Microsoft.Win32.PowerModeChangedEventHandler(OnPowerModeChanged);
+            UpdatePowerMode();
         }
 
         public string PowerString
@@ -36,23 +37,28 @@ namespace Bar
 
         public void Update()
         {
-            PowerString = status;
+            PowerString = mode;
         }
 
-        private void OnPowerModeChanged(object sender, Microsoft.Win32.PowerModeChangedEventArgs e)
+        private void UpdatePowerMode()
         {
             switch (SystemInformation.PowerStatus.PowerLineStatus)
             {
                 case PowerLineStatus.Offline:
-                    status = "Off";
+                    mode = "Off";
                     break;
                 case PowerLineStatus.Online:
-                    status = "On";
+                    mode = "On";
                     break;
                 case PowerLineStatus.Unknown:
-                    status = "Unknown";
+                    mode = "Unknown";
                     break;
             }
+        }
+
+        private void OnPowerModeChanged(object sender, Microsoft.Win32.PowerModeChangedEventArgs e)
+        {
+            UpdatePowerMode();
         }
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
