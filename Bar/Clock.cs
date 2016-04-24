@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -13,16 +12,13 @@ namespace Bar
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private string time;
-        private Timer timer;
 
         public Clock()
         {
             time = "";
-            timer = new Timer(new TimerCallback(Update));
-            timer.Change(0, 1000);
         }
 
-        public void Update(object args)
+        public void Update()
         {
             TimeString = DateTime.Now.ToString("H:mm");
         }
