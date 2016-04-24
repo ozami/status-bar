@@ -11,14 +11,17 @@ namespace Bar
         private Timer timer;
         Clock clock;
         CpuUsage cpuUsage;
+        Power power;
 
         public StatusBar()
         {
             InitializeComponent();
             clock = new Clock();
             cpuUsage = new CpuUsage();
+            power = new Power();
             clock_label.DataContext = clock;
             cpu_label.DataContext = cpuUsage;
+            power_label.DataContext = power;
             timer = new Timer(new TimerCallback(Update));
             timer.Change(0, 2500);
         }
@@ -27,8 +30,8 @@ namespace Bar
         {
             clock.Update();
             cpuUsage.Update();
+            power.Update();
         }
-
         //protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         //{
         //    base.OnMouseLeftButtonDown(e);
