@@ -37,7 +37,10 @@ namespace Bar
 
         public void Update()
         {
-            PowerString = mode;
+            var status = SystemInformation.PowerStatus;
+            var lifetime = status.BatteryLifeRemaining;
+            var percent = status.BatteryLifePercent * 100;
+            PowerString = mode + " " + percent + "% " + lifetime + "s";
         }
 
         private void UpdatePowerMode()
