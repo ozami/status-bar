@@ -20,7 +20,7 @@ namespace Bar
 
         public void Update()
         {
-            TimeString = DateTime.Now.ToString("H:mm");
+            TimeString = DateTime.Now.ToString("M/d H:mm");
         }
 
         public string TimeString
