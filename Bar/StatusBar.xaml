@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bar"
         mc:Ignorable="d"
-        Title="StatusBar" Height="22" Width="220" Background="#B2000000" Foreground="White" AllowsTransparency="True" WindowStyle="None" ScrollViewer.VerticalScrollBarVisibility="Disabled" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" Focusable="False" IsHitTestVisible="False" IsTabStop="False" Top="0" Left="380">
+        Title="StatusBar" Height="22" Width="220" Background="#B2000000" Foreground="White" AllowsTransparency="True" WindowStyle="None" ScrollViewer.VerticalScrollBarVisibility="Disabled" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" Focusable="False" IsHitTestVisible="False" IsTabStop="False" Top="0">
     <Grid ScrollViewer.VerticalScrollBarVisibility="Disabled">
         <Label x:Name="clock_label" Content="{Binding TimeString}" Width="80" Height="22" Foreground="White" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Arial"/>
         <Label x:Name="cpu_label" Content="{Binding UsageString}" Foreground="White" FontFamily="Arial" HorizontalAlignment="Right" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="40" Height="22" Margin="0,0,95,0"/>

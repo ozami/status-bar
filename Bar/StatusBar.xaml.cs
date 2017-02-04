@@ -16,6 +16,7 @@ namespace Bar
         public StatusBar()
         {
             InitializeComponent();
+            Left = (System.Windows.SystemParameters.PrimaryScreenWidth - Width) / 2;
             clock = new Clock();
             cpuUsage = new CpuUsage();
             power = new Power();
