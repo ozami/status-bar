@@ -21,7 +21,7 @@ namespace Bar
             cpuUsage = new CpuUsage();
             power = new Power();
             clock_label.DataContext = clock;
-            cpu_label.DataContext = cpuUsage;
+            cpu_panel.DataContext = cpuUsage;
             power_label.DataContext = power;
             timer = new Timer(new TimerCallback(Update));
             timer.Change(0, 2500);

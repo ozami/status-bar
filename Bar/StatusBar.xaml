@@ -6,9 +6,19 @@
         xmlns:local="clr-namespace:Bar"
         mc:Ignorable="d"
         Title="StatusBar" Height="22" Width="220" Background="#B2000000" Foreground="White" AllowsTransparency="True" WindowStyle="None" ScrollViewer.VerticalScrollBarVisibility="Disabled" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" Focusable="False" IsHitTestVisible="False" IsTabStop="False" Top="0">
+    
     <Grid ScrollViewer.VerticalScrollBarVisibility="Disabled">
         <Label x:Name="clock_label" Content="{Binding TimeString}" Width="80" Height="22" Foreground="White" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Arial"/>
-        <Label x:Name="cpu_label" Content="{Binding UsageString}" Foreground="White" FontFamily="Arial" HorizontalAlignment="Right" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="40" Height="22" Margin="0,0,95,0"/>
+        <UniformGrid x:Name="cpu_panel" Width="30" Height="14" Rows="1" Margin="0,4,0,4">
+            <UniformGrid.Resources>
+                <local:ConvertToMeterOpacity x:Key="ToOpacity"/>
+            </UniformGrid.Resources>
+            <Rectangle Fill="#EEEEEE" Margin="0,0,2,0" Opacity="{Binding Usage, Converter={StaticResource ToOpacity}, ConverterParameter=1}"/>
+            <Rectangle Fill="#EEEEEE" Margin="0,0,2,0" Opacity="{Binding Usage, Converter={StaticResource ToOpacity}, ConverterParameter=2}"/>
+            <Rectangle Fill="#EEEEEE" Margin="0,0,2,0" Opacity="{Binding Usage, Converter={StaticResource ToOpacity}, ConverterParameter=3}"/>
+            <Rectangle Fill="#EEEEEE" Margin="0,0,2,0" Opacity="{Binding Usage, Converter={StaticResource ToOpacity}, ConverterParameter=4}"/>
+            <Rectangle Fill="#EEEEEE" Margin="0,0,2,0" Opacity="{Binding Usage, Converter={StaticResource ToOpacity}, ConverterParameter=5}"/>
+        </UniformGrid>
         <Label x:Name="power_label" Content="{Binding PowerString}" Foreground="White" FontFamily="Arial" HorizontalAlignment="Right" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="90" Height="22"/>
 
     </Grid>

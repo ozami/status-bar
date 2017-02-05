@@ -8,7 +8,7 @@ namespace Bar
     class CpuUsage : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        private string usage;
+        private int usage; // 0-5
         private PerformanceCounter counter;
 
         public CpuUsage()
@@ -16,7 +16,7 @@ namespace Bar
             counter = new PerformanceCounter("Processor", "% Processor Time", "_Total", ".");
         }
 
-        public string UsageString
+        public int Usage
         {
             get
             {
@@ -35,7 +35,9 @@ namespace Bar
 
         public void Update()
         {
-            UsageString = counter.NextValue().ToString("F0") + " %";
+            var u = counter.NextValue();
+            var level = (u + 10) / 20;
+            Usage = (int)level;
         }
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
