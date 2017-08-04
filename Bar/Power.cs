@@ -48,13 +48,13 @@ namespace Bar
             switch (SystemInformation.PowerStatus.PowerLineStatus)
             {
                 case PowerLineStatus.Offline:
-                    mode = "Off";
+                    mode = "🔋";
                     break;
                 case PowerLineStatus.Online:
-                    mode = "On";
+                    mode = "🔌";
                     break;
                 case PowerLineStatus.Unknown:
-                    mode = "Unknown";
+                    mode = "？";
                     break;
             }
         }

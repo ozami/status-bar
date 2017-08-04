@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bar"
         mc:Ignorable="d"
-        Title="StatusBar" Height="22" Width="220" Background="#B2000000" Foreground="White" AllowsTransparency="True" WindowStyle="None" ScrollViewer.VerticalScrollBarVisibility="Disabled" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" Focusable="False" IsHitTestVisible="False" IsTabStop="False" Top="0">
-    
-    <Grid ScrollViewer.VerticalScrollBarVisibility="Disabled">
-        <Label x:Name="clock_label" Content="{Binding TimeString}" Width="80" Height="22" Foreground="White" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Arial"/>
-        <UniformGrid x:Name="cpu_panel" Width="30" Height="14" Rows="1" Margin="0,4,0,4">
+        Title="StatusBar" Height="20" Width="220" Background="#B2000000" Foreground="White" AllowsTransparency="True" WindowStyle="None" ScrollViewer.VerticalScrollBarVisibility="Disabled" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" Focusable="False" IsHitTestVisible="False" IsTabStop="False" Top="0">
+
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <Viewbox Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,5,0">
+            <Label x:Name="clock_label" Content="{Binding TimeString}" Foreground="White" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Arial" FontSize="24" />
+        </Viewbox>
+        <UniformGrid x:Name="cpu_panel" Width="30" Height="12" Rows="1" Margin="0,4,5,4">
             <UniformGrid.Resources>
                 <local:ConvertToMeterOpacity x:Key="ToOpacity"/>
             </UniformGrid.Resources>
@@ -19,7 +21,8 @@
             <Rectangle Fill="#EEEEEE" Margin="0,0,2,0" Opacity="{Binding Usage, Converter={StaticResource ToOpacity}, ConverterParameter=4}"/>
             <Rectangle Fill="#EEEEEE" Margin="0,0,2,0" Opacity="{Binding Usage, Converter={StaticResource ToOpacity}, ConverterParameter=5}"/>
         </UniformGrid>
-        <Label x:Name="power_label" Content="{Binding PowerString}" Foreground="White" FontFamily="Arial" HorizontalAlignment="Right" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="90" Height="22"/>
-
-    </Grid>
+        <Viewbox Height="20" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Label x:Name="power_label" Content="{Binding PowerString}" Foreground="White" FontFamily="Arial" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+        </Viewbox>
+    </StackPanel>
 </Window>
